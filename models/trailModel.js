@@ -1,18 +1,15 @@
-/**
- * Created by Akshat on 9/25/2017.
- */
-
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
-var trailModel = new Schema({
+var assetModel = new Schema({
     name: {type: String},
     description: {type: String},
-    photos: {type:Array, default:[]},
+    photos: {data:Buffer, type:String },
     tags: {type: Array, default: []},
     difficulty: {type: String, enum: ['Easy', 'Moderate', 'Difficult'], default: 'Easy'},
+    elevation: {type:Number},
     distance: {type: Number}
 });
 
 
-module.exports = mongoose.model('Trail', trailModel);
+module.exports = mongoose.model('Asset', assetModel);
 
